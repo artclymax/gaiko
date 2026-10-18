@@ -1,0 +1,82 @@
+@use "../tools" as *;
+
+.header {
+	padding-bottom: 8px;
+	color: var(--color-dark-btn);
+
+	.page-id-65 &,
+	.error404 & {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+
+	@include media($tablet) {
+		padding-bottom: 0;
+	}
+
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+		@include media($tablet) {
+			gap: 10px;
+		}
+	}
+
+	&__logo {
+		@include media($tablet) {
+			margin-right: auto;
+		}
+	}
+
+	&__menu {
+	}
+
+	&__btn-box {
+		@include flex-column;
+		align-items: center;
+		align-self: flex-end;
+		gap: 15px;
+		margin-bottom: -24px;
+	}
+
+	&__btn {
+		max-width: 100%;
+		width: 100%;
+	}
+
+	&__phone {
+	}
+
+	&__phone-btn {
+	}
+
+	&__burger-btn {
+	}
+}
+
+.header-contacts-box {
+	@include flex-column;
+	gap: 20px;
+	&__title {
+	}
+
+	&__list {
+		@include reset-list;
+		@include flex-column;
+		gap: 10px;
+	}
+
+	&__item {
+	}
+
+	&__address {
+		font-style: normal;
+	}
+
+	&__link {
+	}
+}

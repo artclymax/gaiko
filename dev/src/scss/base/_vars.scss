@@ -1,0 +1,40 @@
+@use "../tools" as *;
+
+:root {
+	--color-0: rgba(0, 0, 0, 0);
+	--color-black: #000;
+	--color-white: #fff;
+	// Colors
+	--color-bg: #fff7e6;
+	--color-gray: #c7cdd4;
+	--color-gray-2: #f1f5f9;
+	--color-gray-3: #878b95;
+	--color-gray-4: #9fa1a6;
+	--color-gray-5: #f3f3f4;
+	--color-gray-text: #6f747f;
+
+	--color-dark: #0b1220;
+	--color-dark-btn: #0f172a;
+	--color-dark-btn-05: #{rgba(#0f172a, 0.05)};
+
+	--color-green: #2fbf71;
+	--color-green-light: #e8f8f3;
+
+	--color-accent: #f59e0b;
+
+	// Layouts
+	--header-height: #{adapt(140, 86)};
+	--section-padding: #{adapt(120, 60)};
+	--section-padding-05: #{adapt(60, 30)};
+
+	--container-width: 1200px;
+	--container-padding: 10px; //! даже если контейнер на весь экран, отступы оставь а ширину сделай на 100%
+
+	// Fonts
+	--font-size-html: 100%; // 1rem = 1px ===> calc(1 / 16 * 100%)
+	--font-size: #{adapt(16, 14)};
+	--font-family-main: "Manrope-VF", "Manrope", sans-serif;
+
+	--line-height: 140%;
+	--letter-spacing: auto;
+}

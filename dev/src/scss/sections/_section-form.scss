@@ -1,0 +1,74 @@
+@use "../tools" as *;
+
+.section-form {
+	background: var(--color-dark-btn);
+	padding-block: adapt(120, 30);
+
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__content {
+		color: var(--color-gray-4);
+	}
+
+	&__subtitle {
+		@include reset;
+		opacity: 0.8;
+		&:not(:last-child) {
+			margin-bottom: adapt(70, 10);
+		}
+	}
+
+	&__title {
+		color: var(--color-white);
+
+		strong {
+			color: var(--color-accent);
+		}
+
+		&:not(:last-child) {
+			margin-bottom: adapt(20, 10);
+		}
+	}
+
+	&__descr {
+		font-size: adapt(18, 14);
+		max-width: 90%;
+		ul {
+			font-size: adapt(16, 14);
+			@include reset-list;
+			@include flex-column;
+
+			gap: 10px;
+			color: var(--color-gray);
+
+			li {
+				display: flex;
+				align-items: center;
+				gap: adapt(20, 10);
+
+				&::before {
+					content: "";
+					@include square(40px);
+					background: rgba(255, 255, 255, 0.05);
+					border-radius: 8px;
+					@include bgimg(url("../../../public/images/icons/section-form-icon.svg"), 20px);
+				}
+			}
+		}
+	}
+
+	&__form {
+		border-radius: adapt(12, 8);
+		padding: adapt(40, 10);
+		box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+		background: var(--color-white);
+	}
+}

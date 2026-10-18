@@ -1,0 +1,17 @@
+@use "../tools" as *;
+
+.section-header {
+	@include flex-column;
+	gap: adapt(20, 10);
+	max-width: 640px;
+
+	&__title {
+		strong {
+			text-transform: uppercase;
+			color: var(--color-gray-4);
+		}
+	}
+
+	&__descr {
+	}
+}

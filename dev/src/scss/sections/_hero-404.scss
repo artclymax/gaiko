@@ -1,0 +1,31 @@
+@use "../tools" as *;
+
+.hero-404 {
+	@include bgimg(var(--bg-image), cover);
+	padding-top: calc(var(--header-height) + 20px);
+	padding-bottom: 20px;
+	position: relative;
+	@include overlay(var(--color-white), 0.2);
+
+	&__container {
+		position: relative;
+		z-index: 2;
+		min-height: 60dvh;
+		@include flex-column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		gap: 20px;
+	}
+
+	&__title {
+	}
+
+	&__descr {
+	}
+
+	&__btn {
+		max-width: 340px;
+		width: 100%;
+	}
+}

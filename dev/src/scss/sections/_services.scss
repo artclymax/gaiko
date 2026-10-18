@@ -1,0 +1,80 @@
+@use "../tools" as *;
+
+.services {
+	&__container {
+		@include flex-column;
+		gap: adapt(40, 20);
+	}
+
+	&__list {
+		gap: adapt(20, 18);
+	}
+
+	&__item {
+	}
+}
+
+.services-card {
+	border: 1px solid rgba(15, 23, 42, 0.2);
+	border-radius: 12px;
+	padding: adapt(20, 10);
+	@include flex-column;
+	align-items: flex-start;
+
+	&__image {
+		border-radius: 12px;
+		@include square(adapt(48, 44));
+		background: var(--color-dark-btn);
+		border-radius: adapt(12, 6);
+
+		@include flex-center;
+
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+
+		img {
+			@include square(24px);
+		}
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__descr {
+		font-size: adapt(14, 12);
+		flex-grow: 1;
+		&:not(:last-child) {
+			margin-bottom: adapt(30, 20);
+		}
+
+		@include media($mobile) {
+			font-weight: 500;
+		}
+	}
+
+	&__link {
+		text-decoration: none;
+		color: var(--color-dark-btn);
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+
+		&::before {
+			content: "";
+			@include square(16px);
+			@include bgimg(url("../../../public/images/icons/link-arrow.svg"));
+			transition: all 0.3s;
+			order: 2;
+		}
+
+		@include hover {
+			&::before {
+				transform: rotate(45deg);
+			}
+		}
+	}
+}

@@ -1,0 +1,73 @@
+@use "../tools" as *;
+
+.projects {
+	&__container {
+	}
+	.section-header {
+		max-width: 520px;
+		&:not(:last-child) {
+			margin-bottom: adapt(40, 20);
+		}
+	}
+	.projects-swiper {
+		width: 100%;
+	}
+}
+.projects-swiper {
+	&__wrapper {
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__btn-box {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		justify-content: flex-end;
+
+		@include media($mobile) {
+			justify-content: center;
+		}
+	}
+
+	&__btn {
+	}
+
+	&__btn-prev {
+	}
+
+	&__btn-next {
+	}
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+}
+.projects-slide {
+	&__wrapper {
+		display: flex;
+		height: adapt(480, 405);
+		border-radius: adapt(24, 8);
+		overflow: hidden;
+
+		img {
+			transition: all 0.3s;
+		}
+
+		@include hover {
+			img {
+				transform: scale(1.05);
+			}
+		}
+	}
+}
+.image-box {
+}
+.swiper-btn {
+	&__prev {
+	}
+
+	&__next {
+	}
+}

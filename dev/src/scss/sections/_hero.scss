@@ -1,0 +1,284 @@
+@use "../tools" as *;
+
+.hero {
+	padding-top: 60px;
+	position: relative;
+	@include media($mobile) {
+		padding-top: unset;
+	}
+	&__image {
+		position: absolute;
+		right: container-padding();
+		bottom: 0;
+		//width: adapt(590, 490, $tablet);
+		width: adapt(590, 560, $laptop-sm);
+		height: adapt(440, 350, $tablet);
+		border-radius: 12px;
+		overflow: hidden;
+
+		@include media($laptop-sm) {
+			width: adapt(560, 490, $tablet, $laptop-sm);
+		}
+		@include media($tablet) {
+			width: adapt(490, 365, $mobile, $tablet);
+		}
+		@include media($mobile) {
+			position: relative;
+			width: 100%;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			border-radius: 0;
+			height: adapt(350, 270, $finishBreakpoint, $mobile);
+		}
+	}
+
+	&__image-box {
+		position: absolute;
+		bottom: adapt(20, 10, $mobile);
+		right: adapt(20, 10, $mobile);
+
+		@include media($mobile) {
+			bottom: unset;
+			right: unset;
+			top: 5px;
+			left: 10px;
+		}
+	}
+
+	&__container {
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: adapt(40, 20);
+		}
+		@include media($mobile) {
+			position: absolute;
+			transform: translateY(-100%);
+			padding-bottom: 20px;
+			margin-bottom: 0 !important;
+
+			&::before {
+				content: "";
+				filter: blur(50px);
+				background: var(--color-gray);
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+			}
+		}
+	}
+
+	&__content {
+		max-width: 590px; //490 - 365
+		min-height: adapt(440, 350, $tablet);
+		@include flex-column;
+
+		@include media($laptop-sm) {
+			width: adapt(560, 490, $tablet, $laptop-sm);
+		}
+		@include media($tablet) {
+			width: adapt(490, 365, $mobile, $tablet);
+		}
+		@include media($mobile) {
+			position: relative;
+			z-index: 2;
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+
+	&__subtitle {
+		color: var(--color-gray-4);
+		font-size: adapt(60, 48);
+		font-weight: 800;
+
+		@include media($mobile) {
+			font-weight: 600;
+		}
+		&:not(:last-child) {
+			margin-bottom: adapt(40, 10);
+		}
+	}
+
+	&__descr {
+		&:not(:last-child) {
+			margin-bottom: adapt(50, 20);
+		}
+	}
+
+	&__label {
+		@include reset;
+		padding: 10px 12px;
+		background: var(--color-dark-btn-05);
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		border-radius: 8px;
+		color: var(--color-dark-btn);
+
+		&:not(:last-child) {
+			margin-bottom: adapt(60, 20);
+		}
+
+		&::before {
+			content: "";
+			@include square(8px);
+			background: var(--color-green);
+			opacity: 0.5;
+			border-radius: 100%;
+		}
+	}
+
+	&__btn-box {
+		flex-grow: 1;
+		display: flex;
+		gap: 20px;
+		align-items: flex-start;
+		flex-wrap: wrap;
+
+		&:not(:last-child) {
+			margin-bottom: adapt(70, 20);
+		}
+		@include media($tablet) {
+			gap: 10px;
+		}
+	}
+
+	&__btn {
+		flex: 1 1 200px;
+		padding: 14px;
+		@include hover {
+			span {
+				&::before {
+					background-image: url("../../../public/images/icons/hero-btn-build--dark.svg");
+				}
+				&::after {
+					background-image: url("../../../public/images/icons/hero-arrow--dark.svg");
+				}
+			}
+		}
+		span {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+
+			&::before,
+			&::after {
+				content: "";
+				@include square(16px);
+				flex-shrink: 0;
+
+				background-position: center center; /* x y */
+				background-size: contain;
+				background-repeat: no-repeat;
+			}
+
+			&::before {
+				background-image: url("../../../public/images/icons/hero-btn-build.svg");
+			}
+			&::after {
+				background-image: url("../../../public/images/icons/hero-arrow.svg");
+			}
+		}
+	}
+
+	&__btn-first {
+	}
+
+	&__btn-second {
+		span {
+			&::before {
+				background-image: url("../../../public/images/icons/hero-btn-person--dark.svg");
+			}
+			&::after {
+				background-image: url("../../../public/images/icons/hero-arrow--dark.svg");
+			}
+		}
+
+		@include hover {
+			span {
+				&::before {
+					background-image: url("../../../public/images/icons/hero-btn-person.svg");
+				}
+				&::after {
+					background-image: url("../../../public/images/icons/hero-arrow.svg");
+				}
+			}
+		}
+	}
+}
+
+.hero-image-box {
+	padding: adapt(22, 6) adapt(10, 6);
+	max-width: adapt(290, 250);
+	width: 100%;
+	background: var(--color-white);
+	border: 1px solid var(--color-dark-btn-05);
+	border-radius: adapt(16, 6);
+
+	gap: adapt(16, 10);
+	align-items: flex-start;
+	--width: #{adapt(48, 24)};
+	--bg-color: var(--color-green-light);
+	--icon-bg: url("../../../public/images/icons/hero-check-icon.svg");
+	--bg-size: #{adapt(20, 16)};
+
+	box-shadow:
+		0 8px 10px -6px rgba(0, 0, 0, 0.1),
+		0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+	&::before {
+		border-radius: adapt(12, 6);
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 4px;
+	}
+
+	&__title {
+		@include reset;
+		color: var(--color-dark-btn);
+	}
+
+	&__descr {
+		color: var(--color-gray-3);
+	}
+}
+
+.hero-benefits-swiper {
+	margin-bottom: -3px;
+	width: 100%;
+	&__wrapper {
+	}
+}
+
+.hero-benefits-slide {
+	width: auto !important;
+	&__wrapper {
+		border: 1px solid rgba(15, 23, 42, 0.05);
+		border-radius: 12px;
+		padding: 10px;
+		box-shadow:
+			0 1px 2px -1px rgba(0, 0, 0, 0.1),
+			0 1px 3px 0 rgba(0, 0, 0, 0.1);
+		margin-bottom: 3px;
+
+		@include flex-column;
+		gap: 10px;
+	}
+
+	&__image {
+		@include square(27px);
+	}
+
+	&__title {
+		@include reset;
+		min-width: 97px;
+	}
+}

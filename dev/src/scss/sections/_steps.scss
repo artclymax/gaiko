@@ -1,0 +1,59 @@
+@use "../tools" as *;
+
+.steps {
+	&__container {
+		@include flex-column;
+		gap: adapt(40, 20);
+	}
+}
+
+.steps-swiper {
+	width: 100%;
+	&__wrapper {
+	}
+}
+
+.steps-slide {
+	max-width: 285px !important;
+
+	&:last-child {
+		.steps-slide__counter:after {
+			display: none;
+		}
+	}
+
+	&__wrapper {
+	}
+
+	&__counter {
+		font-weight: 800;
+		font-size: adapt(60, 40);
+		color: var(--color-gray-2);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+
+		&:not(:last-child) {
+			margin-bottom: adapt(20, 10);
+		}
+
+		&::after {
+			content: '';
+			width: 82px;
+			height: 2px;
+			background: var(--color-dark-btn);
+		}
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__descr {
+		font-size: 12px;
+		font-weight: 500;
+	}
+}

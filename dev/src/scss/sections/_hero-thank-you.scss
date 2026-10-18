@@ -1,0 +1,53 @@
+@use "../tools" as *;
+
+.hero-thank-you {
+	@include bgimg(var(--bg-image), cover);
+	padding-top: calc(var(--header-height) + 20px);
+	padding-bottom: 20px;
+	position: relative;
+	@include overlay(var(--color-white), 0.6);
+
+	&__container {
+		position: relative;
+		z-index: 2;
+		min-height: 60dvh;
+		@include flex-column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		gap: 20px;
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		@include media($mobile) {
+			font-weight: 400;
+			font-size: 14px;
+		}
+	}
+
+	&__form {
+		max-width: 386px;
+		width: 100%;
+		margin: 0 auto;
+		@include flex-column;
+		gap: 20px;
+		color: var(--color-dark);
+
+		p {
+			@include reset;
+		}
+	}
+
+	&__input {
+		width: 100%;
+		background: transparent;
+		border-color: var(--color-dark);
+		padding: adapt(20, 16) 24px;
+	}
+
+	&__btn {
+	}
+}

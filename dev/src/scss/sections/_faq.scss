@@ -1,0 +1,85 @@
+@use "../tools" as *;
+
+.faq {
+	&__container {
+		@include flex-column;
+		gap: adapt(40, 20);
+	}
+
+	&__list {
+		@include reset-list;
+		max-width: 828px;
+		align-self: center;
+		@include flex-column;
+		gap: adapt(20, 10);
+	}
+
+	&__item {
+	}
+}
+
+.faq-item {
+	border: 1px solid rgba(15, 23, 42, 0.2);
+	border-radius: 16px;
+	overflow: hidden;
+	color: var(--color-dark-btn);
+
+	&__btn {
+		padding: 10px 20px;
+		border: none;
+		width: 100%;
+		text-align: left;
+		background: var(--color-0);
+
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+	}
+	&__title {
+	}
+	&__icon {
+		flex-shrink: 0;
+		@include square(24px);
+		border-radius: 50%;
+		background: var(--color-dark-btn-05);
+		position: relative;
+		transition: all 0.3s;
+		.spoiler-active & {
+			background: var(--color-dark-btn);
+		}
+		&::after,
+		&::before {
+			content: "";
+			width: 11px;
+			height: 2px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -55%) rotate(90deg);
+			background: var(--color-dark-btn);
+			transition: all 0.3s;
+			.spoiler-active & {
+					background: var(--color-white);
+			}
+		}
+
+		&::after {
+			transform: translate(-50%, -55%) rotate(0deg);
+		}
+
+		&::before {
+			.spoiler-active & {
+				transform: translate(-50%, -55%) rotate(180deg);
+			}
+		}
+	}
+
+	&__content {
+	}
+
+	&__descr {
+		padding: 20px;
+		padding-top: 0;
+	}
+}

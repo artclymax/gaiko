@@ -1,0 +1,134 @@
+@use "../tools" as *;
+
+.footer {
+	background: var(--color-gray);
+	padding-block: adapt(40, 10);
+	color: var(--color-dark-btn);
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 20px;
+		flex-wrap: wrap;
+
+		@include media($mobile) {
+			justify-content: center;
+			gap: 20px 40px
+		}
+	}
+
+	&__logo {
+		flex-shrink: 0;
+		width: 180px;
+		height: 170px;
+
+		@include flex-center;
+
+		a {
+			width: 110px;
+			height: 110px;
+		}
+
+		@include media($mobile) {
+			flex: 1 1 100%;
+		}
+	}
+
+	&__nav {
+		
+	}
+
+	&__title {
+		@include reset;
+		@include text-l;
+
+		&:not(:last-child) {
+			margin-bottom: adapt(30, 20);
+		}
+		@include media($mobile) {
+			@include title-3;
+		}
+	}
+
+	&__contacts {
+		
+	}
+
+	&__contacts-list {
+		@include reset-list;
+		@include flex-column;
+		gap: adapt(20, 10);
+	}
+
+	&__contacts-item {
+	}
+
+	&__info {
+		@include flex-column;
+		gap: 10px;
+		@include media($mobile) {
+			gap: 14px;
+			@include text-overline;
+			color: var(--color-dark);
+			flex: 1 1 100%;
+			align-items: center;
+			text-align: center;
+		}
+	}
+
+	&__links {
+		@include flex-column;
+		gap: 10px;
+		align-items: flex-start;
+		@include media($mobile) {
+			gap: 14px;
+			align-items: center;
+			text-align: center;
+		}
+	}
+
+	&__link {
+	}
+
+	&__copy {
+		display: inline-flex;
+		font-size: inherit;
+	}
+}
+.container {
+}
+.logo {
+}
+.footer-menu {
+	&__list {
+		@include reset-list;
+		@include flex-column;
+		gap: 10px;
+
+		a {
+			text-decoration: none;
+			color: inherit;
+			@include hover-link;
+		}
+	}
+}
+.footer-contacts-item {
+	&__address {
+		font-style: normal;
+	}
+
+	&__list {
+		@include reset-list;
+		@include flex-column;
+		gap: 10px;
+	}
+
+	&__phone {
+	}
+
+	&__link {
+	}
+
+	&__email {
+	}
+}
